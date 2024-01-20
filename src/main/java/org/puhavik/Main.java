@@ -65,7 +65,7 @@ class PasswordCracker implements Runnable {
     @Override
     public void run() {
         for (long i = startRange; i <= endRange && !found.get(); i++) {
-            String current = String.format("%010d", i);
+            String current = String.format("%010d", i); // Fill gaps with 0
             System.out.println("Trying password: " + current); // Print every password guess
             if (tryPassword(zipFilePath, current)) {
                 long endTime = System.currentTimeMillis();
